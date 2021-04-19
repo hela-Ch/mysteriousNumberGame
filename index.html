@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link href="style.css" rel="stylesheet"/>
+
+    
+    <title> Mysterious Number </title>
+</head>
+<body >
+    <header class="my-sm-4 mx-3 ">
+        <img src="https://media.giphy.com/media/l378khQxt68syiWJy/giphy.gif" alt="numbers" class="float-end pb-2 rounded" height="150" width="150"/>
+        <h1 class="text-center py-4"> Le jeu du nombre mystère </h1>
+    </header>    
+    <main class="mx-sm-5 px-sm-5 px-2">
+        <!--modal de choix de difficulté -->
+        <section id="modalBox" class="modal" >
+            <div id="modalDialog">
+                  <header class=" pb-ms-4 pt-2 pe-2">
+                    <button type="button" class="btn-close btn-secondary closeButton" onClick="boxModelClose()"></button>
+                  </header>
+                  <main class="my-sm-4 my-2">
+                        <p class="text-center text-light mx-4">Veuillez choisir le niveau de difficulté : </p>
+                        <div class="d-flex flex-column justify-content-evenly flex-wrap pb-ms-4 pt-ms-3">
+                            <input type="radio" class="btn-check " name="difficulty" id="easy" autocomplete="off" >
+                            <label class="btn  rounded-pill text-success" for="easy">EASY</label>
+
+                            <input type="radio" class="btn-check" name="difficulty" id="medium" autocomplete="off">
+                            <label class="btn rounded-pill text-warning" for="medium">MEDIUM</label>
+
+                            <input type="radio" class="btn-check" name="difficulty" id="difficult" autocomplete="off">
+                            <label class="btn  rounded-pill text-danger" for="difficult">DIFFICULT</label>
+                            <button type="submit" class="btn  rounded-circle pt-ms-5 pt-2" id="confirmButton" onclick="setDifficultyLevel()"> <img src="https://img.icons8.com/doodle/48/000000/ok.png"/></button>
+                        </div>    
+                  </main>
+            </div>
+
+        </section>
+        <form class="mx-sm-5 mx-1">   
+            <label for="userInput" class="text-decoration-underline mb-4" >Deviner le nombre mystére :(On commence par 1 ) </label>
+            <img src="https://img.icons8.com/doodle/48/000000/help.png" height="20" width="20" onclick="getHelp(event)"/>
+            <div class=" d-flex flex-wrap justify-content-center px-2"> 
+                <input type="text"  id="userInput"  oninput ="validatioInput(event)"required>   
+                <input type="submit" class="btn btn-success rounded-circle mx-2" id="checkButton" value ="OK" onclick="checkedEquality(event)"/> 
+            </div>  
+            <div id="invalidInput" class="text-center">
+                Veuillez entrer un numéro entre 1 et 99
+            </div>  
+        </form> 
+        <!-- modal en cas de success-->
+        <div class="modal" id="modalResult"> 
+            <h2 id="note"class="text-center my-sm-5 mt-1"> </h2>
+            <h5 id="score" class="text-center my-sm-5 text-light"> </h5>
+            <button class="btn pt-sm-5 pt-2 float-end" id="replayButton"> <a href="index.html"><img src="https://img.icons8.com/doodle/48/000000/replay--v1.png"/></a></button>
+        </div>     
+        <footer class="mx-3">
+            <p class="mt-4 pl-2 fw-bolder">  Compteur d'essai :<span id="counter"> 0</span></p>
+            <!-- conteneur du resultat en cas d'echec ou en cas de click sur le help -->
+            <div  class="d-flex flex-column justify-content-center align-items-center mt-3 "> 
+                <img id="resultImage" height="25%" width="35%"/>
+                <p id="resultText" class="fw-bold"> </p>
+           </div>
+        </footer>
+    </main>
+
+    
+<script src="script.js"></script>  
+</body>
+</html>
